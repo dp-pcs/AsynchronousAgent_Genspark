@@ -1,0 +1,184 @@
+{
+  "flashcards": [
+    {
+      "question": "What is the capital of France?",
+      "answer": "Paris",
+      "tags": [
+        "geography",
+        "capitals"
+      ],
+      "id": "91e9c0e3-e1dc-4256-854c-2e0200ade3bb",
+      "created_at": "2025-08-26T17:56:54.106246",
+      "updated_at": "2025-08-26T17:56:54.106251",
+      "ease_factor": 2.5,
+      "interval": 1,
+      "repetition": 0,
+      "last_reviewed": null,
+      "next_review": "2025-08-26T17:56:54.106256",
+      "total_reviews": 0
+    },
+    {
+      "question": "What is the capital of France?",
+      "answer": "Paris",
+      "tags": [
+        "geography",
+        "capitals"
+      ],
+      "id": "a89d99ea-f6e9-4073-83ae-f8ac40b0e988",
+      "created_at": "2025-08-26T17:56:54.140451",
+      "updated_at": "2025-08-26T17:56:54.140457",
+      "ease_factor": 2.5,
+      "interval": 1,
+      "repetition": 0,
+      "last_reviewed": null,
+      "next_review": "2025-08-26T17:56:54.140461",
+      "total_reviews": 0
+    },
+    {
+      "question": "What is the capital of France?",
+      "answer": "Paris",
+      "tags": [
+        "geography",
+        "capitals"
+      ],
+      "id": "f1ee17ee-772b-4ccc-b5fb-f16cf1db738e",
+      "created_at": "2025-08-26T17:56:54.173038",
+      "updated_at": "2025-08-26T17:56:54.173044",
+      "ease_factor": 2.5,
+      "interval": 1,
+      "repetition": 0,
+      "last_reviewed": null,
+      "next_review": "2025-08-26T17:56:54.173047",
+      "total_reviews": 0
+    },
+    {
+      "question": "What is the capital of Germany?",
+      "answer": "Berlin",
+      "tags": [
+        "geography",
+        "europe"
+      ],
+      "id": "745d7278-9d06-4902-9b15-54f88d61fe8d",
+      "created_at": "2025-08-26T17:56:54.199209",
+      "updated_at": "2025-08-26T17:56:54.210425",
+      "ease_factor": 2.5,
+      "interval": 1,
+      "repetition": 0,
+      "last_reviewed": null,
+      "next_review": "2025-08-26T17:56:54.199221",
+      "total_reviews": 0
+    },
+    {
+      "question": "What is the capital of France?",
+      "answer": "Paris",
+      "tags": [
+        "geography",
+        "capitals"
+      ],
+      "id": "b730ccd0-6bc7-4b1f-a2a3-4750da5b1698",
+      "created_at": "2025-08-26T17:56:54.292810",
+      "updated_at": "2025-08-26T17:56:54.292816",
+      "ease_factor": 2.5,
+      "interval": 1,
+      "repetition": 0,
+      "last_reviewed": null,
+      "next_review": "2025-08-26T17:56:54.292820",
+      "total_reviews": 0
+    },
+    {
+      "question": "What is the capital of France?",
+      "answer": "Paris",
+      "tags": [
+        "geography",
+        "capitals"
+      ],
+      "id": "39d37d44-1cfb-42b3-8e57-69fec459fd01",
+      "created_at": "2025-08-26T17:56:54.313176",
+      "updated_at": "2025-08-26T17:56:54.313181",
+      "ease_factor": 2.5,
+      "interval": 1,
+      "repetition": 0,
+      "last_reviewed": null,
+      "next_review": "2025-08-26T17:56:54.313185",
+      "total_reviews": 0
+    },
+    {
+      "question": "What is the capital of France?",
+      "answer": "Paris",
+      "tags": [
+        "geography",
+        "capitals"
+      ],
+      "id": "79e453f4-27b2-4881-a9f8-30d290210d14",
+      "created_at": "2025-08-26T17:56:54.943123",
+      "updated_at": "2025-08-26T17:56:54.943129",
+      "ease_factor": 2.5,
+      "interval": 1,
+      "repetition": 0,
+      "last_reviewed": null,
+      "next_review": "2025-08-26T17:56:54.943133",
+      "total_reviews": 0
+    },
+    {
+      "question": "What is the capital of France?",
+      "answer": "Paris",
+      "tags": [
+        "geography",
+        "capitals"
+      ],
+      "id": "066a3ed8-7c40-4f76-9d7f-a9a11773a392",
+      "created_at": "2025-08-26T18:03:44.988299",
+      "updated_at": "2025-08-26T18:03:44.988305",
+      "ease_factor": 2.5,
+      "interval": 1,
+      "repetition": 0,
+      "last_reviewed": null,
+      "next_review": "2025-08-26T18:03:44.988310",
+      "total_reviews": 0
+    },
+    {
+      "question": "What is 2 + 2?",
+      "answer": "4",
+      "tags": [
+        "math",
+        "basic"
+      ],
+      "id": "d9fbd3bd-427c-46b7-a3b6-83d0845600f6",
+      "created_at": "2025-08-26T18:03:50.908658",
+      "updated_at": "2025-08-26T18:03:50.908662",
+      "ease_factor": 2.5,
+      "interval": 1,
+      "repetition": 0,
+      "last_reviewed": null,
+      "next_review": "2025-08-26T18:03:50.908669",
+      "total_reviews": 0
+    },
+    {
+      "question": "Who wrote Romeo and Juliet?",
+      "answer": "William Shakespeare",
+      "tags": [
+        "literature",
+        "classics"
+      ],
+      "id": "b4b2f458-849b-433d-89c1-3446d878544c",
+      "created_at": "2025-08-26T18:03:50.999332",
+      "updated_at": "2025-08-26T18:03:50.999338",
+      "ease_factor": 2.5,
+      "interval": 1,
+      "repetition": 0,
+      "last_reviewed": null,
+      "next_review": "2025-08-26T18:03:50.999343",
+      "total_reviews": 0
+    }
+  ],
+  "study_sessions": [
+    {
+      "id": "19632cc3-4abf-4d95-ac0d-2308408a9f1e",
+      "start_time": "2025-08-26T17:56:54.275658",
+      "end_time": null,
+      "cards_reviewed": 0,
+      "cards_correct": 0,
+      "total_time": 0
+    }
+  ]
+}

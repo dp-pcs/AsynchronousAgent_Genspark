@@ -1,4 +1,24 @@
 module.exports = {
+  feature/spaced-repetition-flashcards
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  roots: ['<rootDir>/libs', '<rootDir>/apps'],
+  testMatch: [
+    '**/__tests__/**/*.ts',
+    '**/?(*.)+(spec|test).ts'
+  ],
+  transform: {
+    '^.+\\.ts$': 'ts-jest',
+  },
+  collectCoverageFrom: [
+    '**/*.ts',
+    '!**/*.d.ts',
+    '!**/node_modules/**',
+    '!**/tests/**',
+    '!**/__tests__/**'
+  ],
+  modulePathIgnorePatterns: ['<rootDir>/node_modules/'],
+=======
   projects: [
     '<rootDir>/apps/web',
     '<rootDir>/libs/shared'
@@ -21,4 +41,5 @@ module.exports = {
   
   // Global setup/teardown for seeding
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js']
+ main
 };
