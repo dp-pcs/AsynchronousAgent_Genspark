@@ -12,4 +12,4 @@ def test_healthz():
 def test_quiz_create_allows_empty_payload_but_shouldnt():
     # This test intentionally encodes the *desired* behavior (should reject empty payload).
     r = client.post('/quiz/create', json={})
-    assert r.status_code == 400  # will fail until validation is added
+    assert r.status_code == 422  # FastAPI returns 422 for validation errors
