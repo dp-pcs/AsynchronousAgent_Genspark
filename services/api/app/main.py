@@ -1,7 +1,11 @@
 from fastapi import FastAPI, HTTPException
+ feature/spaced-repetition-flashcards
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, field_validator
 from typing import List
+=======
+from pydantic import BaseModel, Field, field_validator
+ main
 import re
 
 from .models.flashcard import (
@@ -66,11 +70,23 @@ class QuizItem(BaseModel):
         
         return v
 
+ feature/spaced-repetition-flashcards
 @app.post("/quiz/create", tags=["Legacy"])
 def quiz_create(item: QuizItem):
     """
     Legacy quiz creation endpoint (maintained for backward compatibility).
     For new applications, use /api/flashcards endpoints.
+=======
+# Enhanced validation with comprehensive error handling
+@app.post("/quiz/create")
+def quiz_create(item: QuizItem):
+    """
+    Create a quiz item with comprehensive validation.
+    
+    - Question: 3-1000 characters, meaningful text required
+    - Answer: 1-1000 characters, non-empty
+    - Both fields are trimmed of excess whitespace
+ main
     """
     try:
         # Additional business logic validation
@@ -108,7 +124,11 @@ def quiz_create(item: QuizItem):
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
+ feature/spaced-repetition-flashcards
 @app.get("/healthz", tags=["System"])
+=======
+@app.get("/healthz")
+ main
 def healthz():
     """Health check endpoint"""
     return {"ok": True}
