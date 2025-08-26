@@ -1,0 +1,151 @@
+name: CI - Test Stability & Validation
+
+on:
+  push:
+    branches: [ main, 'stability/*' ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  # Seed randomness for deterministic test runs
+  JEST_SEED: 12345
+  PYTEST_RANDOMLY_SEED: 42
+  NODE_ENV: test
+
+jobs:
+  test-javascript:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run tests with deterministic settings
+      run: |
+        # Run tests in band (sequential) to avoid race conditions
+        npm test -- --runInBand --verbose --detectOpenHandles
+      env:
+        # Additional environment variables for test stability
+        FORCE_COLOR: 0
+        CI: true
+
+    - name: Run build verification
+      run: npm run build
+
+  test-python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12']
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        cd services/api
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest-randomly pytest-xdist
+
+    - name: Run tests with seeded randomness
+      run: |
+        cd services/api
+        # Run tests with fixed random seed and parallel execution disabled for stability
+        python -m pytest tests/ -v \
+          --randomly-seed=42 \
+          --tb=short \
+          --strict-markers \
+          --disable-warnings
+      env:
+        PYTHONHASHSEED: 0
+
+  security-audit:
+    runs-on: ubuntu-latest
+    needs: [test-javascript, test-python]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+
+    - name: Install dependencies
+      run: |
+        npm ci
+        cd services/api && pip install -r requirements.txt
+
+    - name: Run security audits
+      run: |
+        echo "🔍 Running JavaScript security audit..."
+        npm audit --audit-level=moderate
+        
+        echo "🔍 Running Python security audit..."
+        cd services/api && pip-audit --requirement requirements.txt
+
+  reproducibility-test:
+    runs-on: ubuntu-latest
+    needs: [test-javascript, test-python]
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+
+    - name: Install dependencies
+      run: |
+        npm ci
+        cd services/api && pip install -r requirements.txt
+
+    - name: Run reproducibility test (multiple iterations)
+      run: |
+        echo "🔄 Testing reproducibility with multiple test runs..."
+        
+        # Run JavaScript tests multiple times to verify determinism
+        for i in {1..3}; do
+          echo "JS Test Run $i"
+          npm test -- --runInBand --silent
+        done
+        
+        # Run Python tests multiple times to verify determinism  
+        cd services/api
+        for i in {1..3}; do
+          echo "Python Test Run $i"
+          python -m pytest tests/ --randomly-seed=42 -q
+          cd ..
+        done
+        
+        echo "✅ All reproducibility tests passed!"
