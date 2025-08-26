@@ -6,11 +6,26 @@
     "moduleResolution": "Node",
     "strict": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {},
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
   "include": [
     "pages",
     "__tests__",
     "styles"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
