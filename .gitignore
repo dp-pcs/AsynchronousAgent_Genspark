@@ -1,2 +1,6 @@
 node_modules/
 package-lock.json
+**/.next/
+**/dist/
+**/.pytest_cache/
+**/__pycache__/
